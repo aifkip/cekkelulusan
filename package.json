@@ -1,0 +1,9 @@
+{
+  "name": "cek-kelulusan",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Aplikasi Cek Kelulusan Seleksi",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

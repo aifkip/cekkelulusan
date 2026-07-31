@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cek Hasil Seleksi — PPG FKIP UNS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg-light: #f8fafc;
+      --card-bg: #ffffff;
+      --card-border: #e2e8f0;
+      --primary: #0077c8;
+      --primary-hover: #0056b3;
+      --primary-glow: rgba(0, 119, 200, 0.2);
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --text-label: #334155;
+      --success-bg: #ecfdf5;
+      --success-border: #a7f3d0;
+      --success-text: #047857;
+      --danger-bg: #fef2f2;
+      --danger-border: #fecaca;
+      --danger-text: #b91c1c;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1.5;
+      position: relative;
+    }
+
+    /* UNS Gate Background Overlay (Light watermark style) */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('assets/images/bg-uns-gate.png');
+      background-size: cover;
+      background-position: center bottom;
+      background-repeat: no-repeat;
+      opacity: 0.12;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Brand Header Bar (Strict Single Row Side-by-Side) */
+    .brand-header {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      background: #ffffff;
+      border-bottom: 2px solid #e2e8f0;
+      padding: 12px 24px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .brand-group {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-img {
+      height: 38px;
+      width: auto;
+      max-width: 140px;
+      object-fit: contain;
+      filter: none;
+    }
+
+    .brand-divider {
+      height: 28px;
+      width: 1px;
+      background: #cbd5e1;
+    }
+
+    /* Main Container */
+    .container {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 680px;
+      margin: 36px auto;
+      padding: 0 16px;
+      flex: 1;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .badge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      background: #e0f2fe;
+      border: 1px solid #bae6fd;
+      color: #0284c7;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .title {
+      font-size: 32px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    /* Pure White Card */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.06);
+      margin-bottom: 24px;
+      transition: all 0.3s ease;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .form-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-label);
+    }
+
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-icon {
+      position: absolute;
+      left: 16px;
+      width: 20px;
+      height: 20px;
+      color: #0077c8;
+      pointer-events: none;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 14px 16px 14px 48px;
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 12px;
+      color: #0f172a;
+      font-size: 16px;
+      font-family: inherit;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .form-input::placeholder {
+      color: #94a3b8;
+    }
+
+    .form-input:focus {
+      border-color: #0077c8;
+      box-shadow: 0 0 0 4px var(--primary-glow);
+      background: #ffffff;
+    }
+
+    .btn-submit {
+      margin-top: 18px;
+      width: 100%;
+      padding: 14px 24px;
+      background: linear-gradient(135deg, #0077c8 0%, #0056b3 100%);
+      color: #ffffff;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 14px rgba(0, 119, 200, 0.3);
+    }
+
+    .btn-submit:hover:not(:disabled) {
+      background: linear-gradient(135deg, #008be3 0%, #0066cc 100%);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(0, 119, 200, 0.4);
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .spinner {
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-top-color: #ffffff;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      display: none;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .validation-msg {
+      margin-top: 8px;
+      color: var(--danger-text);
+      font-size: 13px;
+      font-weight: 500;
+      display: none;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Result Section */
+    .result-section {
+      display: none;
+      animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .status-banner {
+      padding: 16px 20px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .status-banner.lolos {
+      background: var(--success-bg);
+      border: 1px solid var(--success-border);
+      color: var(--success-text);
+    }
+
+    .status-banner.tidak-lolos {
+      background: var(--danger-bg);
+      border: 1px solid var(--danger-border);
+      color: var(--danger-text);
+    }
+
+    .status-title {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.2px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .info-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .info-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+    }
+
+    .info-value {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-main);
+      word-break: break-word;
+    }
+
+    /* Error Alert */
+    .error-card {
+      display: none;
+      background: var(--danger-bg);
+      border: 1px solid var(--danger-border);
+      border-radius: 16px;
+      padding: 20px;
+      color: var(--danger-text);
+      text-align: center;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .error-icon {
+      width: 40px;
+      height: 40px;
+      margin: 0 auto 12px;
+      background: rgba(239, 68, 68, 0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .error-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .error-desc {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    /* Footer Banner Bar */
+    .footer-banner {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      background: linear-gradient(135deg, #0052cc 0%, #0077c8 60%, #004085 100%);
+      color: #ffffff;
+      padding: 16px 28px;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .footer-banner-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .footer-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-icon-circle {
+      width: 34px;
+      height: 34px;
+      background: #ffffff;
+      color: #0052cc;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .footer-right-group {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .copyright-bar {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      background: #0f172a;
+      text-align: center;
+      padding: 12px;
+      color: #94a3b8;
+      font-size: 12px;
+    }
+
+    /* Strict Mobile Single Row Header Layout */
+    @media (max-width: 640px) {
+      .brand-header {
+        padding: 8px 10px !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        gap: 4px !important;
+      }
+
+      .brand-group {
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        gap: 4px !important;
+      }
+
+      .logo-img {
+        height: 24px !important;
+        max-width: 70px !important;
+      }
+
+      .brand-divider {
+        height: 18px !important;
+      }
+
+      .title {
+        font-size: 24px;
+      }
+
+      .card {
+        padding: 20px;
+        border-radius: 16px;
+      }
+
+      .footer-banner-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .footer-right-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Brand Header Bar (Strict Single Row Side-by-Side) -->
+  <header class="brand-header">
+    <div class="brand-group">
+      <img src="assets/images/logo-tutwuri.png" alt="Logo Tut Wuri Handayani" class="logo-img">
+      <img src="assets/images/logo-uns.png" alt="Logo Universitas Sebelas Maret" class="logo-img">
+    </div>
+    <div class="brand-group">
+      <img src="assets/images/logo-fkip.png" alt="Logo FKIP UNS" class="logo-img">
+      <div class="brand-divider"></div>
+      <img src="assets/images/logo-ppg.png" alt="Logo PPG FKIP UNS" class="logo-img">
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="header">
+      <div class="badge-tag">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+        Pengumuman Resmi
+      </div>
+      <h1 class="title">Cek Hasil Seleksi</h1>
+      <p class="subtitle">Program Studi Pendidikan Profesi Guru (PPG) FKIP Universitas Sebelas Maret</p>
+    </div>
+
+    <!-- Form Card -->
+    <div class="card">
+      <form id="checkForm" novalidate>
+        <div class="form-group">
+          <label for="idInput" class="form-label">ID Kelulusan</label>
+          <div class="input-wrapper">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+              <line x1="7" y1="8" x2="17" y2="8"></line>
+              <line x1="7" y1="12" x2="13" y2="12"></line>
+              <line x1="7" y1="16" x2="11" y2="16"></line>
+            </svg>
+            <input type="text" id="idInput" class="form-input" placeholder="" autocomplete="off" spellcheck="false" />
+          </div>
+          <div id="validationMsg" class="validation-msg">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+            <span>Mohon masukkan ID Kelulusan terlebih dahulu.</span>
+          </div>
+        </div>
+
+        <button type="submit" id="btnSubmit" class="btn-submit">
+          <span class="spinner" id="spinner"></span>
+          <span id="btnText">Cek Status</span>
+        </button>
+      </form>
+    </div>
+
+    <!-- Error Card -->
+    <div id="errorCard" class="card error-card">
+      <div class="error-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="15" y1="9" x2="9" y2="15"></line>
+          <line x1="9" y1="9" x2="15" y2="15"></line>
+        </svg>
+      </div>
+      <h3 class="error-title">Tidak Ditemukan</h3>
+      <p class="error-desc" id="errorMsg">ID Kelulusan tidak ditemukan</p>
+    </div>
+
+    <!-- Result Card -->
+    <div id="resultCard" class="card result-section">
+      <div id="statusBanner" class="status-banner">
+        <div>
+          <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; opacity: 0.8; margin-bottom: 2px;">
+            Keputusan Seleksi</div>
+          <div class="status-title" id="resKeputusan">-</div>
+        </div>
+        <div id="statusIcon"></div>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="info-label">Nama Lengkap</span>
+          <span class="info-value" id="resNama">-</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">ID Kelulusan</span>
+          <span class="info-value" id="resId">-</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Jabatan yang Dilamar</span>
+          <span class="info-value" id="resJabatan">-</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Lokasi Penempatan</span>
+          <span class="info-value" id="resLokasi">-</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Program Studi</span>
+          <span class="info-value" id="resProdi">-</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Bidang Studi PPG</span>
+          <span class="info-value" id="resBidangStudi">-</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Banner Bottom Footer Bar -->
+  <footer class="footer-banner">
+    <div class="footer-banner-content">
+      <div class="footer-item">
+        <div class="footer-icon-circle">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+        </div>
+        <span>TUK Universitas Sebelas Maret</span>
+      </div>
+
+      <div class="footer-right-group">
+        <div class="footer-item">
+          <div class="footer-icon-circle">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+              </path>
+            </svg>
+          </div>
+          <span>ppg.fkip.uns.ac.id</span>
+        </div>
+
+        <div class="footer-item">
+          <div class="footer-icon-circle">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </div>
+          <span>@ppg.uns</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="copyright-bar">
+    &copy; 2026 Program Studi Pendidikan Profesi Guru (PPG) FKIP Universitas Sebelas Maret. Seluruh Hak Cipta
+    Dilindungi.
+  </div>
+
+  <script>
+    const checkForm = document.getElementById('checkForm');
+    const idInput = document.getElementById('idInput');
+    const btnSubmit = document.getElementById('btnSubmit');
+    const btnText = document.getElementById('btnText');
+    const spinner = document.getElementById('spinner');
+    const validationMsg = document.getElementById('validationMsg');
+    const resultCard = document.getElementById('resultCard');
+    const errorCard = document.getElementById('errorCard');
+    const errorMsg = document.getElementById('errorMsg');
+
+    const resKeputusan = document.getElementById('resKeputusan');
+    const resNama = document.getElementById('resNama');
+    const resId = document.getElementById('resId');
+    const resJabatan = document.getElementById('resJabatan');
+    const resLokasi = document.getElementById('resLokasi');
+    const resProdi = document.getElementById('resProdi');
+    const resBidangStudi = document.getElementById('resBidangStudi');
+    const statusBanner = document.getElementById('statusBanner');
+    const statusIcon = document.getElementById('statusIcon');
+
+    // Reset error when user types
+    idInput.addEventListener('input', () => {
+      validationMsg.style.display = 'none';
+    });
+
+    checkForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const queryId = idInput.value.trim();
+
+      // Client-side validation: Empty input
+      if (!queryId) {
+        validationMsg.style.display = 'flex';
+        resultCard.style.display = 'none';
+        errorCard.style.display = 'none';
+        return;
+      }
+
+      validationMsg.style.display = 'none';
+      resultCard.style.display = 'none';
+      errorCard.style.display = 'none';
+
+      // Set Loading state
+      btnSubmit.disabled = true;
+      spinner.style.display = 'inline-block';
+      btnText.textContent = 'Mengecek...';
+
+      try {
+        const response = await fetch('/api/cek?id=' + encodeURIComponent(queryId));
+        const json = await response.json();
+
+        if (response.ok && json.found && json.data) {
+          const d = json.data;
+          resNama.textContent = d.nama || '-';
+          resId.textContent = d.id || '-';
+          resJabatan.textContent = d.jabatan || '-';
+          resLokasi.textContent = d.lokasi || '-';
+          resProdi.textContent = d.prodi || '-';
+          resBidangStudi.textContent = d.bidang_studi || '-';
+
+          const keputusanText = d.keputusan || 'Proses';
+          resKeputusan.textContent = keputusanText;
+
+          if (keputusanText.toLowerCase().includes('lolos') && !keputusanText.toLowerCase().includes('tidak')) {
+            statusBanner.className = 'status-banner lolos';
+            statusIcon.innerHTML = `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`;
+          } else {
+            statusBanner.className = 'status-banner tidak-lolos';
+            statusIcon.innerHTML = `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>`;
+          }
+
+          resultCard.style.display = 'block';
+        } else {
+          errorMsg.textContent = json.message || 'ID Kelulusan tidak ditemukan';
+          errorCard.style.display = 'block';
+        }
+      } catch (err) {
+        errorMsg.textContent = 'Terjadi kesalahan jaringan. Silakan coba lagi.';
+        errorCard.style.display = 'block';
+      } finally {
+        btnSubmit.disabled = false;
+        spinner.style.display = 'none';
+        btnText.textContent = 'Cek Status';
+      }
+    });
+  </script>
+</body>
+
+</html>
