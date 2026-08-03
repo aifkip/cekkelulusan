@@ -786,13 +786,13 @@
           </div>
 
           <div class="info-field">
-            <span class="info-field-label">Program Studi S-1 / Asal Perguruan Tinggi</span>
-            <span class="info-field-value" id="resProdiUniv">-</span>
+            <span class="info-field-label">Seleksi Administrasi</span>
+            <span class="info-field-value" id="resSelAdm">-</span>
           </div>
 
           <div class="info-field">
-            <span class="info-field-label">Bidang Studi PPG</span>
-            <span class="info-field-value" id="resBidangStudi">-</span>
+            <span class="info-field-label">Seleksi Akhir (Substansi)</span>
+            <span class="info-field-value" id="resSelSub">-</span>
           </div>
 
           <div class="info-field" id="jabatanItem">
@@ -979,17 +979,23 @@
           document.getElementById('resEmail').textContent = d.email || email;
           document.getElementById('resSimpkb').textContent = d.simpkb || '-';
 
-          let prodiUniv = '-';
-          if (d.prodi_s1 && d.univ_s1) {
-            prodiUniv = d.prodi_s1 + ' — ' + d.univ_s1;
-          } else if (d.prodi_s1) {
-            prodiUniv = d.prodi_s1;
-          } else if (d.univ_s1) {
-            prodiUniv = d.univ_s1;
+          const selAdmEl = document.getElementById('resSelAdm');
+          selAdmEl.textContent = d.sel_adm || '-';
+          if ((d.sel_adm || '').toLowerCase().includes('tidak')) {
+            selAdmEl.style.color = '#f87171';
+          } else {
+            selAdmEl.style.color = '#34d399';
           }
-          document.getElementById('resProdiUniv').textContent = prodiUniv;
 
-          document.getElementById('resBidangStudi').textContent = d.bidang_studi || '-';
+          const selSubEl = document.getElementById('resSelSub');
+          selSubEl.textContent = d.sel_sub || '-';
+          if ((d.sel_sub || '').toLowerCase().includes('tidak')) {
+            selSubEl.style.color = '#f87171';
+          } else if ((d.sel_sub || '').toLowerCase().includes('lulus')) {
+            selSubEl.style.color = '#34d399';
+          } else {
+            selSubEl.style.color = '#94a3b8';
+          }
           document.getElementById('resJabatan').textContent = d.jabatan || '-';
           document.getElementById('resLokasi').textContent = d.lokasi || '-';
 
