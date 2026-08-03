@@ -939,10 +939,10 @@
 
         if (response.ok && json.found && json.data) {
           const d = json.data;
-          const isLulus = (d.status === 'LULUS');
+          const isLolos = (d.status === 'LOLOS' || d.status === 'LULUS');
 
           // Header & Theme adjustments
-          if (isLulus) {
+          if (isLolos) {
             document.body.className = 'theme-lolos';
             cardHeader.className = 'snbp-header header-lolos';
             headerTitle.textContent = 'SELAMAT! ANDA DINYATAKAN LOLOS SELEKSI TPP SNT';
@@ -991,7 +991,7 @@
           selSubEl.textContent = d.sel_sub || '-';
           if ((d.sel_sub || '').toLowerCase().includes('tidak')) {
             selSubEl.style.color = '#f87171';
-          } else if ((d.sel_sub || '').toLowerCase().includes('lulus')) {
+          } else if ((d.sel_sub || '').toLowerCase().includes('lolos') || (d.sel_sub || '').toLowerCase().includes('lulus')) {
             selSubEl.style.color = '#34d399';
           } else {
             selSubEl.style.color = '#94a3b8';

@@ -34,7 +34,7 @@ module.exports = (req, res) => {
         judul: record.judul || '',
         sel_adm: record.sel_adm || '',
         sel_sub: record.sel_sub || '',
-        status: record.status || 'TIDAK LULUS',
+        status: record.status || 'TIDAK LOLOS',
         jabatan: record.jabatan || '',
         lokasi: record.lokasi || '',
         group_wa: record.group_wa || '',
