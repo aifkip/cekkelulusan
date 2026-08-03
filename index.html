@@ -804,11 +804,6 @@
             <span class="info-field-label">Lokasi Penempatan</span>
             <span class="info-field-value" id="resLokasi" style="color: #38bdf8;">-</span>
           </div>
-
-          <div class="info-field">
-            <span class="info-field-label">Tanggal Lahir / Domisili</span>
-            <span class="info-field-value" id="resTglDomisili" style="font-size: 14px; color: #94a3b8;">-</span>
-          </div>
         </div>
 
         <!-- WhatsApp Group Join Card (FOR LULUS) -->
@@ -998,16 +993,6 @@
           }
           document.getElementById('resJabatan').textContent = d.jabatan || '-';
           document.getElementById('resLokasi').textContent = d.lokasi || '-';
-
-          let tglDom = '-';
-          if (d.tgl_lahir && d.domisili) {
-            tglDom = d.tgl_lahir + ' | ' + d.domisili;
-          } else if (d.tgl_lahir) {
-            tglDom = d.tgl_lahir;
-          } else if (d.domisili) {
-            tglDom = d.domisili;
-          }
-          document.getElementById('resTglDomisili').textContent = tglDom;
 
           resultCard.style.display = 'block';
         } else {
