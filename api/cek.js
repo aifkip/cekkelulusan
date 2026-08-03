@@ -12,36 +12,46 @@ module.exports = (req, res) => {
     });
   }
 
-  const id = req.query && req.query.id;
+  const queryParam = req.query && (req.query.email || req.query.id);
 
-  // Security enforcement: Never expose full dataset if id is missing or invalid
-  if (!id || typeof id !== 'string' || id.trim() === '') {
+  // Security enforcement: Never expose full dataset if email is missing or invalid
+  if (!queryParam || typeof queryParam !== 'string' || queryParam.trim() === '') {
     return res.status(400).json({
       found: false,
-      message: 'ID Kelulusan wajib diisi'
+      message: 'Alamat email wajib diisi'
     });
   }
 
-  const targetId = id.trim();
-  const record = kelulusanData[targetId];
+  const targetEmail = queryParam.trim().toLowerCase();
+  const record = kelulusanData[targetEmail];
 
   if (record) {
     return res.status(200).json({
       found: true,
       data: {
-        id: targetId,
+        email: record.email || targetEmail,
         nama: record.nama || '',
-        lokasi: record.lokasi || '',
+        judul: record.judul || '',
+        sel_adm: record.sel_adm || '',
+        sel_sub: record.sel_sub || '',
+        status: record.status || 'TIDAK LULUS',
         jabatan: record.jabatan || '',
-        prodi: record.prodi || '',
+        lokasi: record.lokasi || '',
+        group_wa: record.group_wa || '',
+        simpkb: record.simpkb || '',
+        no_wa: record.no_wa || '',
+        tgl_lahir: record.tgl_lahir || '',
+        prodi_s1: record.prodi_s1 || '',
+        univ_s1: record.univ_s1 || '',
         bidang_studi: record.bidang_studi || '',
-        keputusan: record.keputusan || ''
+        domisili: record.domisili || ''
       }
     });
   } else {
     return res.status(404).json({
       found: false,
-      message: 'ID Kelulusan tidak ditemukan'
+      message: 'Email tidak ditemukan dalam sistem. Pastikan email yang Anda masukkan sudah benar.'
     });
   }
 };
+
