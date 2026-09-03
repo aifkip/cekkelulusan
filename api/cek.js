@@ -31,20 +31,11 @@ module.exports = (req, res) => {
       data: {
         email: record.email || targetEmail,
         nama: record.nama || '',
-        judul: record.judul || '',
-        sel_adm: record.sel_adm || '',
-        sel_sub: record.sel_sub || '',
-        status: record.status || 'TIDAK LOLOS',
         jabatan: record.jabatan || '',
-        lokasi: record.lokasi || '',
-        group_wa: record.group_wa || '',
-        simpkb: record.simpkb || '',
-        no_wa: record.no_wa || '',
-        tgl_lahir: record.tgl_lahir || '',
-        prodi_s1: record.prodi_s1 || '',
-        univ_s1: record.univ_s1 || '',
-        bidang_studi: record.bidang_studi || '',
-        domisili: record.domisili || ''
+        kelulusan: record.kelulusan || '',
+        status: record.status || (record.kelulusan && record.kelulusan.toLowerCase().includes('tidak') ? 'TIDAK LOLOS' : 'LOLOS'),
+        jadwal_wawancara: record.jadwal_wawancara || '-',
+        link_zoom: record.link_zoom || '-'
       }
     });
   } else {
@@ -54,4 +45,5 @@ module.exports = (req, res) => {
     });
   }
 };
+
 

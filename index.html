@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cek Hasil Seleksi — TPP SNT PPG FKIP UNS</title>
+  <title>HASIL SELEKSI ADMINISTRASI & JADWAL WAWANCARA — TAHAP 2 SNT PPG FKIP UNS</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
@@ -63,7 +63,7 @@
       background-size: cover;
       background-position: center bottom;
       background-repeat: no-repeat;
-      opacity: 0.10;
+      opacity: 0.08;
       pointer-events: none;
       z-index: 0;
     }
@@ -119,15 +119,15 @@
       position: relative;
       z-index: 2;
       width: 100%;
-      max-width: 680px;
-      margin: 36px auto;
+      max-width: 720px;
+      margin: 32px auto;
       padding: 0 16px;
       flex: 1;
     }
 
     .header {
       text-align: center;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
     }
 
     .badge-tag {
@@ -139,11 +139,11 @@
       background: #e0f2fe;
       border: 1px solid #bae6fd;
       color: #0284c7;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.5px;
       text-transform: uppercase;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       transition: all 0.3s ease;
     }
 
@@ -160,16 +160,26 @@
     }
 
     .title {
-      font-size: 32px;
+      font-size: 26px;
       font-weight: 800;
       color: #0f172a;
       letter-spacing: -0.5px;
-      margin-bottom: 8px;
+      line-height: 1.3;
+      margin-bottom: 10px;
+      text-transform: uppercase;
     }
 
-    .subtitle {
+    .subtitle-event {
+      color: #0077c8;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.45;
+      margin-bottom: 6px;
+    }
+
+    .subtitle-instansi {
       color: var(--text-muted);
-      font-size: 15px;
+      font-size: 13px;
       font-weight: 500;
     }
 
@@ -178,7 +188,7 @@
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 20px;
-      padding: 30px;
+      padding: 28px;
       box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.06);
       margin-bottom: 24px;
       transition: all 0.3s ease;
@@ -283,7 +293,7 @@
 
     .validation-msg {
       margin-top: 8px;
-      color: var(--danger-text);
+      color: #dc2626;
       font-size: 13px;
       font-weight: 600;
       display: none;
@@ -291,7 +301,7 @@
       gap: 6px;
     }
 
-    /* Result Section - SNBP Style Reference Card */
+    /* Result Section */
     .result-section {
       display: none;
       animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -316,9 +326,9 @@
       }
     }
 
-    /* SNBP Reference Card Header */
+    /* Result Card Header */
     .snbp-header {
-      padding: 24px;
+      padding: 24px 20px;
       text-align: center;
       position: relative;
       color: #ffffff;
@@ -338,74 +348,52 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.22);
       backdrop-filter: blur(4px);
-      padding: 4px 12px;
+      padding: 4px 14px;
       border-radius: 20px;
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 12px;
+      letter-spacing: 0.8px;
+      margin-bottom: 10px;
     }
 
     .snbp-header-title {
       font-size: 20px;
       font-weight: 800;
-      line-height: 1.3;
+      line-height: 1.35;
       letter-spacing: -0.3px;
       text-transform: uppercase;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
     .snbp-header-subtitle {
       font-size: 13px;
       opacity: 0.95;
       font-weight: 500;
-      max-width: 500px;
+      line-height: 1.45;
+      max-width: 600px;
       margin: 0 auto;
     }
 
-    /* SNBP Card Body (Light Themed Info Container) */
+    /* Result Card Body */
     .snbp-body {
       padding: 24px;
       background: #ffffff;
-    }
-
-    .snbp-top-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-bottom: 18px;
-      border-bottom: 1px solid #e2e8f0;
-      margin-bottom: 20px;
-      gap: 16px;
-    }
-
-    .snbp-id-badge {
-      font-family: monospace;
-      font-size: 13px;
-      color: #475569;
-      background: #f1f5f9;
-      padding: 6px 12px;
-      border-radius: 8px;
-      border: 1px solid #cbd5e1;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
     }
 
     /* Info Field List */
     .info-list {
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 16px;
     }
 
     .info-field {
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 4px;
     }
 
     .info-field-label {
@@ -417,109 +405,151 @@
     }
 
     .info-field-value {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
       color: #0f172a;
       word-break: break-word;
     }
 
     .info-field-value.highlight-name {
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 800;
       color: #0f172a;
       letter-spacing: -0.3px;
     }
 
-    /* WhatsApp Group Join Section (For LULUS) */
-    .wa-group-card {
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 800;
+      width: fit-content;
+    }
+
+    .status-badge.status-lolos {
+      background: #dcfce7;
+      color: #15803d;
+      border: 1px solid #86efac;
+    }
+
+    .status-badge.status-tidak-lolos {
+      background: #fee2e2;
+      color: #b91c1c;
+      border: 1px solid #fca5a5;
+    }
+
+    /* Jadwal & Zoom Card (FOR LOLOS) */
+    .schedule-card {
       margin-top: 24px;
       background: #f0fdf4;
       border: 1.5px solid #a7f3d0;
       border-radius: 16px;
       padding: 20px;
-      text-align: center;
-      animation: pulseGlow 2s infinite alternate;
+      box-shadow: 0 4px 16px rgba(5, 150, 105, 0.08);
     }
 
-    @keyframes pulseGlow {
-      from {
-        box-shadow: 0 0 10px rgba(5, 150, 105, 0.15);
-      }
-
-      to {
-        box-shadow: 0 0 25px rgba(5, 150, 105, 0.35);
-      }
-    }
-
-    .wa-group-title {
+    .schedule-card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       font-size: 16px;
       font-weight: 800;
       color: #047857;
-      margin-bottom: 6px;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #a7f3d0;
+    }
+
+    .schedule-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 14px;
+    }
+
+    .schedule-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #047857;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .schedule-val {
+      font-size: 16px;
+      font-weight: 800;
+      color: #0f172a;
       display: flex;
       align-items: center;
-      justify-content: center;
       gap: 8px;
     }
 
-    .wa-group-desc {
+    .btn-zoom {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 14px 20px;
+      background: linear-gradient(135deg, #0b5cff 0%, #0040c1 100%);
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 800;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 14px rgba(11, 92, 255, 0.35);
+      margin-top: 6px;
+    }
+
+    .btn-zoom:hover {
+      background: linear-gradient(135deg, #246eff 0%, #0b5cff 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(11, 92, 255, 0.45);
+    }
+
+    .zoom-notice-box {
+      background: #ecfdf5;
+      border: 1px dashed #059669;
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #047857;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Petunjuk Wawancara Box */
+    .guideline-box {
+      margin-top: 16px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 14px 16px;
       font-size: 13px;
       color: #334155;
-      margin-bottom: 16px;
-      line-height: 1.4;
     }
 
-    .btn-wa {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      width: 100%;
-      padding: 14px 24px;
-      background: #25d366;
-      color: #ffffff;
-      font-size: 16px;
+    .guideline-title {
       font-weight: 800;
-      border-radius: 12px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+      color: #0f172a;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    .btn-wa:hover {
-      background: #20ba5a;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
-    }
-
-    .btn-action-group {
+    .guideline-list {
+      padding-left: 20px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      margin-top: 14px;
-    }
-
-    .btn-biodata {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      width: 100%;
-      padding: 14px 24px;
-      background: linear-gradient(135deg, #0077c8 0%, #0052cc 100%);
-      color: #ffffff;
-      font-size: 16px;
-      font-weight: 800;
-      border-radius: 12px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      box-shadow: 0 4px 14px rgba(0, 119, 200, 0.35);
-    }
-
-    .btn-biodata:hover {
-      background: linear-gradient(135deg, #008be3 0%, #0066cc 100%);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 119, 200, 0.45);
+      gap: 4px;
+      line-height: 1.4;
     }
 
     /* Encouragement Ucapan Section (For TIDAK LULUS) */
@@ -528,7 +558,7 @@
       background: #fef2f2;
       border: 1.5px solid #fecaca;
       border-radius: 16px;
-      padding: 20px;
+      padding: 22px;
       text-align: center;
     }
 
@@ -560,11 +590,11 @@
     /* Error Card */
     .error-card {
       display: none;
-      background: var(--danger-bg);
-      border: 1px solid var(--danger-border);
+      background: #fef2f2;
+      border: 1px solid #fecaca;
       border-radius: 16px;
       padding: 20px;
-      color: var(--danger-text);
+      color: #991b1b;
       text-align: center;
       animation: fadeIn 0.4s ease;
     }
@@ -591,7 +621,7 @@
       opacity: 0.9;
     }
 
-    /* Unified Blue Footer Banner Bar */
+    /* Unified Footer Banner Bar */
     .footer-banner {
       position: relative;
       z-index: 10;
@@ -600,6 +630,7 @@
       color: #ffffff;
       padding: 16px 28px 12px 28px;
       box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+      margin-top: auto;
     }
 
     .footer-banner-content {
@@ -672,7 +703,11 @@
       }
 
       .title {
-        font-size: 24px;
+        font-size: 20px;
+      }
+
+      .subtitle-event {
+        font-size: 13px;
       }
 
       .card {
@@ -728,10 +763,11 @@
           <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
           <polyline points="22 4 12 14.01 9 11.01"></polyline>
         </svg>
-        Pengumuman Kelulusan Seleksi TPP SNT
+        Seleksi Tahap 2 — Sekolah Nasional Terintegrasi
       </div>
-      <h1 class="title">Cek Hasil Seleksi</h1>
-      <p class="subtitle">Program Studi Pendidikan Profesi Guru (PPG) FKIP Universitas Sebelas Maret</p>
+      <h1 class="title">HASIL SELEKSI ADMINISTRASI DAN JADWAL WAWANCARA</h1>
+      <p class="subtitle-event">SELEKSI TAHAP 2 TENAGA PENDAMPING PEMBELAJARAN TAMBAHAN DAN TENAGA ADMINISTRASI SEKOLAH PADA SEKOLAH NASIONAL TERINTEGRASI</p>
+      <p class="subtitle-instansi">Program Studi Pendidikan Profesi Guru (PPG) FKIP Universitas Sebelas Maret</p>
     </div>
 
     <!-- Form Card -->
@@ -744,7 +780,7 @@
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
               <polyline points="22,6 12,13 2,6"></polyline>
             </svg>
-            <input type="email" id="emailInput" class="form-input" placeholder="Masukkan Email Anda Disini"
+            <input type="email" id="emailInput" class="form-input" placeholder="Masukkan email pendaftaran Anda..."
               autocomplete="email" spellcheck="false" required />
           </div>
           <div id="validationMsg" class="validation-msg">
@@ -759,7 +795,7 @@
 
         <button type="submit" id="btnSubmit" class="btn-submit">
           <span class="spinner" id="spinner"></span>
-          <span id="btnText">Cek Status Kelulusan</span>
+          <span id="btnText">Cek Status & Jadwal Wawancara</span>
         </button>
       </form>
     </div>
@@ -773,36 +809,24 @@
           <line x1="9" y1="9" x2="15" y2="15"></line>
         </svg>
       </div>
-      <h3 class="error-title">Tidak Ditemukan</h3>
-      <p class="error-desc" id="errorMsg">Email tidak ditemukan dalam sistem.</p>
+      <h3 class="error-title">Data Tidak Ditemukan</h3>
+      <p class="error-desc" id="errorMsg">Email tidak ditemukan dalam sistem database seleksi.</p>
     </div>
 
-    <!-- Result Card (SNBP Reference Style) -->
+    <!-- Result Card -->
     <div id="resultCard" class="result-section">
       <div id="cardHeader" class="snbp-header header-lolos">
-        <div class="snbp-badge-header">
+        <div class="snbp-badge-header" id="headerBadge">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
           </svg>
-          TPP SNT 2026
+          <span id="headerBadgeText">LOLOS SELEKSI ADMINISTRASI</span>
         </div>
-        <h2 class="snbp-header-title" id="headerTitle">SELAMAT! ANDA DINYATAKAN LOLOS SELEKSI TPP SNT</h2>
-        <p class="snbp-header-subtitle" id="headerSubtitle">Program Seleksi Tenaga Pendampingan Pembelajaran Sekolah
-          Nasional Terintegrasi</p>
+        <h2 class="snbp-header-title" id="headerTitle">SELAMAT! ANDA DINYATAKAN LOLOS SELEKSI ADMINISTRASI</h2>
+        <p class="snbp-header-subtitle" id="headerSubtitle">HASIL SELEKSI ADMINISTRASI DAN JADWAL WAWANCARA SELEKSI TAHAP 2 TENAGA PENDAMPING PEMBELAJARAN TAMBAHAN DAN TENAGA ADMINISTRASI SEKOLAH PADA SEKOLAH NASIONAL TERINTEGRASI</p>
       </div>
 
       <div class="snbp-body">
-        <div class="snbp-top-row">
-          <div class="snbp-id-badge">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="4" width="18" height="16" rx="2"></rect>
-              <line x1="7" y1="8" x2="17" y2="8"></line>
-              <line x1="7" y1="12" x2="13" y2="12"></line>
-            </svg>
-            <span>SIMPKB / NOREG: <strong id="resSimpkb" style="color: #0f172a;">-</strong></span>
-          </div>
-        </div>
-
         <div class="info-list">
           <div class="info-field">
             <span class="info-field-label">Nama Lengkap</span>
@@ -811,62 +835,67 @@
 
           <div class="info-field">
             <span class="info-field-label">Alamat Email</span>
-            <span class="info-field-value" id="resEmail"
-              style="font-size: 14px; font-weight: 600; color: #475569;">-</span>
+            <span class="info-field-value" id="resEmail" style="font-size: 14px; font-weight: 600; color: #475569;">-</span>
           </div>
 
           <div class="info-field">
-            <span class="info-field-label">Seleksi Administrasi</span>
-            <span class="info-field-value" id="resSelAdm">-</span>
+            <span class="info-field-label">Jabatan / Formasi yang Dilamar</span>
+            <span class="info-field-value" id="resJabatan" style="color: #0369a1;">-</span>
           </div>
 
           <div class="info-field">
-            <span class="info-field-label">Seleksi Akhir (Substansi)</span>
-            <span class="info-field-value" id="resSelSub">-</span>
-          </div>
-
-          <div class="info-field" id="jabatanItem">
-            <span class="info-field-label">Jabatan</span>
-            <span class="info-field-value" id="resJabatan" style="color: #047857;">-</span>
-          </div>
-
-          <div class="info-field" id="lokasiItem">
-            <span class="info-field-label">Lokasi Penempatan</span>
-            <span class="info-field-value" id="resLokasi" style="color: #0077c8;">-</span>
+            <span class="info-field-label">Status Seleksi Administrasi</span>
+            <div>
+              <span class="status-badge status-lolos" id="resKelulusan">Lolos Administrasi</span>
+            </div>
           </div>
         </div>
 
-        <!-- WhatsApp Group & Pendataan Biodata Card (FOR LOLOS) -->
-        <div id="waGroupSection" class="wa-group-card" style="display: none;">
-          <div class="wa-group-title">
+        <!-- Jadwal & Link Zoom Section (FOR LOLOS) -->
+        <div id="scheduleSection" class="schedule-card" style="display: none;">
+          <div class="schedule-card-header">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
             </svg>
-            Tindak Lanjut Peserta Lolos
+            Jadwal & Ruang Wawancara (Seleksi Tahap 2)
           </div>
-          <p class="wa-group-desc">
-            Selamat! Silakan lakukan pengisian biodata serta bergabung ke WhatsApp Group resmi peserta lolos untuk koordinasi dan instruksi pemberkasan selanjutnya.
-          </p>
 
-          <div class="btn-action-group">
-            <a id="waLinkBtn" href="#" target="_blank" class="btn-wa">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984 0 1.758.459 3.474 1.33 4.982l-1.413 5.163 5.281-1.387c1.455.794 3.09 1.214 4.79 1.214h.004c5.505 0 9.988-4.478 9.989-9.984 0-2.668-1.038-5.176-2.925-7.063s-4.395-2.929-7.066-2.929zm5.82 14.161c-.244.688-1.419 1.314-1.956 1.396-.514.078-1.18.113-1.9-.117-.436-.14-.999-.323-1.728-.638-3.08-1.331-5.093-4.453-5.247-4.66-.154-.207-1.254-1.67-1.254-3.183 0-1.513.791-2.257 1.072-2.563.282-.307.616-.384.821-.384.205 0 .411.002.59.011.19.009.447-.072.697.528.256.615.872 2.128.948 2.283.077.155.128.334.025.539-.103.205-.154.333-.308.513-.154.18-.324.4-.462.537-.154.154-.315.322-.135.63.18.307.801 1.322 1.717 2.138 1.176 1.048 2.167 1.372 2.475 1.526.308.154.487.128.667-.077.18-.205.77-.897.975-1.205.205-.308.41-.256.692-.154.282.103 1.795.846 2.103 1.001.308.154.513.23.59.359.077.128.077.744-.167 1.432z" />
+          <div class="schedule-item">
+            <span class="schedule-label">Jadwal Wawancara</span>
+            <div class="schedule-val" id="resJadwal">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
               </svg>
-              Join WhatsApp Group TPP SNT
-            </a>
+              <span id="resJadwalText">-</span>
+            </div>
+          </div>
 
-            <a id="biodataLinkBtn" href="https://uns.id/pendataan-biodata-tpp-uns" target="_blank" class="btn-biodata">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-                <line x1="16" y1="13" x2="8" y2="13"></line>
-                <line x1="16" y1="17" x2="8" y2="17"></line>
+          <div class="schedule-item" id="zoomContainer">
+            <span class="schedule-label">Tautan / Ruang Zoom</span>
+            <div id="zoomActionArea">
+              <!-- Dynamically populated button or text -->
+            </div>
+          </div>
+
+          <div class="guideline-box">
+            <div class="guideline-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0077c8" stroke-width="2.2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
               </svg>
-              Isi Pendataan Biodata TPP
-            </a>
+              Petunjuk Pelaksanaan Wawancara:
+            </div>
+            <ul class="guideline-list">
+              <li>Peserta diharapkan bergabung ke ruang Zoom <strong>10–15 menit</strong> sebelum jadwal dimulai.</li>
+              <li>Gunakan format nama Zoom: <strong>Nama Lengkap - Formasi/Jabatan</strong>.</li>
+              <li>Berpakaian rapi, sopan, dan formal serta berada di tempat yang kondusif.</li>
+              <li>Pastikan kamera (video), mikrofon (audio), dan koneksi internet dalam keadaan baik dan stabil.</li>
+            </ul>
           </div>
         </div>
 
@@ -880,10 +909,8 @@
             </svg>
           </div>
           <h4 class="ucapan-title" id="ucapanTitle">JANGAN PUTUS ASA DAN TETAP SEMANGAT</h4>
-          <p class="ucapan-desc">
-            Terima kasih atas apresiasi dan keikutsertaan Anda dalam Seleksi Tenaga Pendampingan Pembelajaran Sekolah
-            Nasional Terintegrasi (TPP SNT). Tetaplah berkarya, tingkatkan potensi terbaik Anda, dan semoga sukses pada
-            peluang hebat berikutnya.
+          <p class="ucapan-desc" id="ucapanDesc">
+            Terima kasih atas apresiasi dan partisipasi Anda dalam mengikuti Seleksi Administrasi Tenaga Pendamping Pembelajaran Tambahan dan Tenaga Administrasi Sekolah pada Sekolah Nasional Terintegrasi. Tetaplah berkarya, tingkatkan potensi terbaik Anda, dan semoga sukses pada peluang hebat berikutnya.
           </p>
         </div>
       </div>
@@ -935,12 +962,16 @@
     const errorMsg = document.getElementById('errorMsg');
 
     const cardHeader = document.getElementById('cardHeader');
+    const headerBadgeText = document.getElementById('headerBadgeText');
     const headerTitle = document.getElementById('headerTitle');
     const headerSubtitle = document.getElementById('headerSubtitle');
-    const waGroupSection = document.getElementById('waGroupSection');
-    const waLinkBtn = document.getElementById('waLinkBtn');
+    const scheduleSection = document.getElementById('scheduleSection');
+    const resJadwalText = document.getElementById('resJadwalText');
+    const zoomActionArea = document.getElementById('zoomActionArea');
     const ucapanSection = document.getElementById('ucapanSection');
-    const ucapanTitle = document.getElementById('ucapanTitle');
+    const resKelulusan = document.getElementById('resKelulusan');
+
+    const EVENT_TITLE = "HASIL SELEKSI ADMINISTRASI DAN JADWAL WAWANCARA SELEKSI TAHAP 2 TENAGA PENDAMPING PEMBELAJARAN TAMBAHAN DAN TENAGA ADMINISTRASI SEKOLAH PADA SEKOLAH NASIONAL TERINTEGRASI";
 
     // Reset validation when typing
     emailInput.addEventListener('input', () => {
@@ -968,7 +999,7 @@
       // Set Loading state
       btnSubmit.disabled = true;
       spinner.style.display = 'inline-block';
-      btnText.textContent = 'Mengecek Status...';
+      btnText.textContent = 'Mengecek Data...';
 
       try {
         const response = await fetch('/api/cek?email=' + encodeURIComponent(email));
@@ -976,70 +1007,79 @@
 
         if (response.ok && json.found && json.data) {
           const d = json.data;
-          const isLolos = (d.status === 'LOLOS' || d.status === 'LULUS');
+          const isLolos = (d.status === 'LOLOS' || (d.kelulusan && d.kelulusan.toLowerCase().includes('lolos') && !d.kelulusan.toLowerCase().includes('tidak')));
 
           // Header & Theme adjustments
           if (isLolos) {
             document.body.className = 'theme-lolos';
             cardHeader.className = 'snbp-header header-lolos';
-            headerTitle.textContent = 'SELAMAT! ANDA DINYATAKAN LOLOS SELEKSI TPP SNT';
-            headerSubtitle.textContent = d.judul || 'Program Seleksi Tenaga Pendampingan Pembelajaran Sekolah Nasional Terintegrasi';
+            headerBadgeText.textContent = 'LOLOS SELEKSI ADMINISTRASI';
+            headerTitle.textContent = 'SELAMAT! ANDA DINYATAKAN LOLOS SELEKSI ADMINISTRASI';
+            headerSubtitle.textContent = EVENT_TITLE;
 
-            // Show WA Group
-            if (d.group_wa && d.group_wa !== '') {
-              waLinkBtn.href = d.group_wa;
-              waGroupSection.style.display = 'block';
+            // Fill status badge
+            resKelulusan.className = 'status-badge status-lolos';
+            resKelulusan.textContent = d.kelulusan || 'Lolos Administrasi';
+
+            // Fill schedule
+            resJadwalText.textContent = d.jadwal_wawancara || 'Jumat, 4 September 2026';
+
+            // Fill zoom link
+            zoomActionArea.innerHTML = '';
+            const zoomVal = (d.link_zoom || '').trim();
+            if (zoomVal.startsWith('http')) {
+              const zoomBtn = document.createElement('a');
+              zoomBtn.href = zoomVal;
+              zoomBtn.target = '_blank';
+              zoomBtn.className = 'btn-zoom';
+              zoomBtn.innerHTML = `
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                  <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                </svg>
+                Masuk Ruang Zoom Wawancara
+              `;
+              zoomActionArea.appendChild(zoomBtn);
             } else {
-              waGroupSection.style.display = 'none';
+              const noticeDiv = document.createElement('div');
+              noticeDiv.className = 'zoom-notice-box';
+              noticeDiv.innerHTML = `
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                <span>${zoomVal && zoomVal !== '-' ? zoomVal : 'Jadwal dan tautan Zoom dapat dipantau secara berkala.'}</span>
+              `;
+              zoomActionArea.appendChild(noticeDiv);
             }
+
+            scheduleSection.style.display = 'block';
             ucapanSection.style.display = 'none';
-            document.getElementById('jabatanItem').style.display = 'flex';
-            document.getElementById('lokasiItem').style.display = 'flex';
           } else {
             document.body.className = 'theme-tidak-lolos';
             cardHeader.className = 'snbp-header header-tidak-lolos';
-            headerTitle.textContent = 'ANDA DINYATAKAN TIDAK LOLOS SELEKSI TPP SNT';
-            headerSubtitle.textContent = d.judul || 'JANGAN PUTUS ASA DAN TETAP SEMANGAT';
+            headerBadgeText.textContent = 'SELEKSI ADMINISTRASI';
+            headerTitle.textContent = 'MOHON MAAF, ANDA BELUM LOLOS SELEKSI ADMINISTRASI';
+            headerSubtitle.textContent = EVENT_TITLE;
 
-            // Show Ucapan encouragement
-            if (d.judul) {
-              ucapanTitle.textContent = d.judul;
-            }
-            waGroupSection.style.display = 'none';
+            // Fill status badge
+            resKelulusan.className = 'status-badge status-tidak-lolos';
+            resKelulusan.textContent = d.kelulusan || 'Tidak Lolos Administrasi';
+
+            scheduleSection.style.display = 'none';
             ucapanSection.style.display = 'block';
-            document.getElementById('jabatanItem').style.display = 'none';
-            document.getElementById('lokasiItem').style.display = 'none';
           }
 
           // Fill candidate information
           document.getElementById('resNama').textContent = d.nama || '-';
           document.getElementById('resEmail').textContent = d.email || email;
-          document.getElementById('resSimpkb').textContent = d.simpkb || '-';
-
-          const selAdmEl = document.getElementById('resSelAdm');
-          selAdmEl.textContent = d.sel_adm || '-';
-          if ((d.sel_adm || '').toLowerCase().includes('tidak')) {
-            selAdmEl.style.color = '#dc2626';
-          } else {
-            selAdmEl.style.color = '#059669';
-          }
-
-          const selSubEl = document.getElementById('resSelSub');
-          selSubEl.textContent = d.sel_sub || '-';
-          if ((d.sel_sub || '').toLowerCase().includes('tidak')) {
-            selSubEl.style.color = '#dc2626';
-          } else if ((d.sel_sub || '').toLowerCase().includes('lolos') || (d.sel_sub || '').toLowerCase().includes('lulus')) {
-            selSubEl.style.color = '#059669';
-          } else {
-            selSubEl.style.color = '#64748b';
-          }
           document.getElementById('resJabatan').textContent = d.jabatan || '-';
-          document.getElementById('resLokasi').textContent = d.lokasi || '-';
 
           resultCard.style.display = 'block';
         } else {
           document.body.className = '';
-          errorMsg.textContent = json.message || 'Email tidak ditemukan dalam sistem. Pastikan email yang Anda masukkan sudah benar.';
+          errorMsg.textContent = json.message || 'Email tidak ditemukan dalam sistem database seleksi.';
           errorCard.style.display = 'block';
         }
       } catch (err) {
@@ -1049,7 +1089,7 @@
       } finally {
         btnSubmit.disabled = false;
         spinner.style.display = 'none';
-        btnText.textContent = 'Cek Status Kelulusan';
+        btnText.textContent = 'Cek Status & Jadwal Wawancara';
       }
     });
   </script>
