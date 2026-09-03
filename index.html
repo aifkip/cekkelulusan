@@ -297,10 +297,10 @@
       animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
-      background: #0f172a;
-      border: 1px solid #334155;
-      color: #ffffff;
+      box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.08);
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      color: #0f172a;
       margin-bottom: 24px;
     }
 
@@ -325,13 +325,13 @@
     }
 
     .snbp-header.header-lolos {
-      background: linear-gradient(135deg, #20ba5a 0%, #20ba5a 100%);
-      border-bottom: 4px solid #10b981;
+      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+      border-bottom: 4px solid #059669;
     }
 
     .snbp-header.header-tidak-lolos {
-      background: linear-gradient(135deg, #ff5100 0%, #991b1b 100%);
-      border-bottom: 4px solid #ef4444;
+      background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+      border-bottom: 4px solid #dc2626;
     }
 
     .snbp-badge-header {
@@ -360,16 +360,16 @@
 
     .snbp-header-subtitle {
       font-size: 13px;
-      opacity: 0.9;
+      opacity: 0.95;
       font-weight: 500;
       max-width: 500px;
       margin: 0 auto;
     }
 
-    /* SNBP Card Body (Dark Themed Info Container) */
+    /* SNBP Card Body (Light Themed Info Container) */
     .snbp-body {
       padding: 24px;
-      background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+      background: #ffffff;
     }
 
     .snbp-top-row {
@@ -377,7 +377,7 @@
       align-items: center;
       justify-content: space-between;
       padding-bottom: 18px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid #e2e8f0;
       margin-bottom: 20px;
       gap: 16px;
     }
@@ -385,11 +385,11 @@
     .snbp-id-badge {
       font-family: monospace;
       font-size: 13px;
-      color: #94a3b8;
-      background: rgba(15, 23, 42, 0.6);
+      color: #475569;
+      background: #f1f5f9;
       padding: 6px 12px;
       border-radius: 8px;
-      border: 1px solid #334155;
+      border: 1px solid #cbd5e1;
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -413,28 +413,28 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.6px;
-      color: #94a3b8;
+      color: #64748b;
     }
 
     .info-field-value {
       font-size: 16px;
       font-weight: 700;
-      color: #f8fafc;
+      color: #0f172a;
       word-break: break-word;
     }
 
     .info-field-value.highlight-name {
       font-size: 22px;
       font-weight: 800;
-      color: #ffffff;
+      color: #0f172a;
       letter-spacing: -0.3px;
     }
 
     /* WhatsApp Group Join Section (For LULUS) */
     .wa-group-card {
       margin-top: 24px;
-      background: rgba(5, 150, 105, 0.15);
-      border: 1.5px solid #059669;
+      background: #f0fdf4;
+      border: 1.5px solid #a7f3d0;
       border-radius: 16px;
       padding: 20px;
       text-align: center;
@@ -443,18 +443,18 @@
 
     @keyframes pulseGlow {
       from {
-        box-shadow: 0 0 10px rgba(5, 150, 105, 0.2);
+        box-shadow: 0 0 10px rgba(5, 150, 105, 0.15);
       }
 
       to {
-        box-shadow: 0 0 25px rgba(5, 150, 105, 0.5);
+        box-shadow: 0 0 25px rgba(5, 150, 105, 0.35);
       }
     }
 
     .wa-group-title {
       font-size: 16px;
       font-weight: 800;
-      color: #34d399;
+      color: #047857;
       margin-bottom: 6px;
       display: flex;
       align-items: center;
@@ -464,7 +464,7 @@
 
     .wa-group-desc {
       font-size: 13px;
-      color: #cbd5e1;
+      color: #334155;
       margin-bottom: 16px;
       line-height: 1.4;
     }
@@ -483,13 +483,13 @@
       border-radius: 12px;
       text-decoration: none;
       transition: all 0.2s ease;
-      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
     }
 
     .btn-wa:hover {
       background: #20ba5a;
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
     }
 
     .btn-action-group {
@@ -506,27 +506,27 @@
       gap: 10px;
       width: 100%;
       padding: 14px 24px;
-      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      background: linear-gradient(135deg, #0077c8 0%, #0052cc 100%);
       color: #ffffff;
       font-size: 16px;
       font-weight: 800;
       border-radius: 12px;
       text-decoration: none;
       transition: all 0.2s ease;
-      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
+      box-shadow: 0 4px 14px rgba(0, 119, 200, 0.35);
     }
 
     .btn-biodata:hover {
-      background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+      background: linear-gradient(135deg, #008be3 0%, #0066cc 100%);
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.5);
+      box-shadow: 0 6px 20px rgba(0, 119, 200, 0.45);
     }
 
     /* Encouragement Ucapan Section (For TIDAK LULUS) */
     .ucapan-card {
       margin-top: 24px;
-      background: rgba(220, 38, 38, 0.12);
-      border: 1.5px solid #dc2626;
+      background: #fef2f2;
+      border: 1.5px solid #fecaca;
       border-radius: 16px;
       padding: 20px;
       text-align: center;
@@ -535,8 +535,8 @@
     .ucapan-icon {
       width: 44px;
       height: 44px;
-      background: rgba(220, 38, 38, 0.2);
-      color: #f87171;
+      background: #fee2e2;
+      color: #dc2626;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -547,13 +547,13 @@
     .ucapan-title {
       font-size: 16px;
       font-weight: 800;
-      color: #f87171;
+      color: #dc2626;
       margin-bottom: 8px;
     }
 
     .ucapan-desc {
       font-size: 14px;
-      color: #e2e8f0;
+      color: #334155;
       line-height: 1.6;
     }
 
@@ -799,7 +799,7 @@
               <line x1="7" y1="8" x2="17" y2="8"></line>
               <line x1="7" y1="12" x2="13" y2="12"></line>
             </svg>
-            <span>SIMPKB / NOREG: <strong id="resSimpkb" style="color: #ffffff;">-</strong></span>
+            <span>SIMPKB / NOREG: <strong id="resSimpkb" style="color: #0f172a;">-</strong></span>
           </div>
         </div>
 
@@ -812,7 +812,7 @@
           <div class="info-field">
             <span class="info-field-label">Alamat Email</span>
             <span class="info-field-value" id="resEmail"
-              style="font-size: 14px; font-weight: 600; color: #cbd5e1;">-</span>
+              style="font-size: 14px; font-weight: 600; color: #475569;">-</span>
           </div>
 
           <div class="info-field">
@@ -827,12 +827,12 @@
 
           <div class="info-field" id="jabatanItem">
             <span class="info-field-label">Jabatan</span>
-            <span class="info-field-value" id="resJabatan" style="color: #34d399;">-</span>
+            <span class="info-field-value" id="resJabatan" style="color: #047857;">-</span>
           </div>
 
           <div class="info-field" id="lokasiItem">
             <span class="info-field-label">Lokasi Penempatan</span>
-            <span class="info-field-value" id="resLokasi" style="color: #38bdf8;">-</span>
+            <span class="info-field-value" id="resLokasi" style="color: #0077c8;">-</span>
           </div>
         </div>
 
@@ -1019,19 +1019,19 @@
           const selAdmEl = document.getElementById('resSelAdm');
           selAdmEl.textContent = d.sel_adm || '-';
           if ((d.sel_adm || '').toLowerCase().includes('tidak')) {
-            selAdmEl.style.color = '#f87171';
+            selAdmEl.style.color = '#dc2626';
           } else {
-            selAdmEl.style.color = '#34d399';
+            selAdmEl.style.color = '#059669';
           }
 
           const selSubEl = document.getElementById('resSelSub');
           selSubEl.textContent = d.sel_sub || '-';
           if ((d.sel_sub || '').toLowerCase().includes('tidak')) {
-            selSubEl.style.color = '#f87171';
+            selSubEl.style.color = '#dc2626';
           } else if ((d.sel_sub || '').toLowerCase().includes('lolos') || (d.sel_sub || '').toLowerCase().includes('lulus')) {
-            selSubEl.style.color = '#34d399';
+            selSubEl.style.color = '#059669';
           } else {
-            selSubEl.style.color = '#94a3b8';
+            selSubEl.style.color = '#64748b';
           }
           document.getElementById('resJabatan').textContent = d.jabatan || '-';
           document.getElementById('resLokasi').textContent = d.lokasi || '-';
