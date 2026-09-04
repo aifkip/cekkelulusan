@@ -26,14 +26,27 @@ module.exports = (req, res) => {
   const record = kelulusanData[targetEmail];
 
   if (record) {
+    const isLolosAkhir = (record.seleksi_akhir && record.seleksi_akhir.toUpperCase() === 'LOLOS');
+    const isLolosAdm = (record.seleksi_administrasi && record.seleksi_administrasi.toLowerCase().includes('lolos') && !record.seleksi_administrasi.toLowerCase().includes('tidak'));
+
+    let statusDetail = 'TIDAK LOLOS SELEKSI ADMINISTRASI';
+    if (isLolosAkhir) {
+      statusDetail = 'LOLOS SELEKSI AKHIR';
+    } else if (isLolosAdm) {
+      statusDetail = 'TIDAK LOLOS SELEKSI AKHIR';
+    }
+
     return res.status(200).json({
       found: true,
       data: {
         email: record.email || targetEmail,
         nama: record.nama || '',
         jabatan: record.jabatan || '',
-        kelulusan: record.kelulusan || '',
-        status: record.status || (record.kelulusan && record.kelulusan.toLowerCase().includes('tidak') ? 'TIDAK LOLOS' : 'LOLOS'),
+        seleksi_administrasi: record.seleksi_administrasi || '-',
+        seleksi_akhir: record.seleksi_akhir || '-',
+        status: isLolosAkhir ? 'LOLOS' : 'TIDAK LOLOS',
+        status_detail: statusDetail,
+        group_wa: record.group_wa && record.group_wa !== '-' ? record.group_wa : null,
         jadwal_wawancara: record.jadwal_wawancara || '-',
         link_zoom: record.link_zoom || '-'
       }
@@ -41,9 +54,7 @@ module.exports = (req, res) => {
   } else {
     return res.status(404).json({
       found: false,
-      message: 'Email tidak ditemukan dalam sistem. Pastikan email yang Anda masukkan sudah benar.'
+      message: 'Email tidak ditemukan dalam sistem database seleksi. Pastikan email yang Anda masukkan sudah sesuai saat pendaftaran.'
     });
   }
 };
-
-
